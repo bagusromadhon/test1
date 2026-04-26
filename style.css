@@ -1,0 +1,153 @@
+:root {
+    --bg-color: #ffe6eb;
+    --card-bg: #ffffff;
+    --primary-color: #ff85a2;
+    --primary-hover: #ff6b8f;
+    --secondary-color: #a0c4ff;
+    --text-color: #4a4a4a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Mencegah scroll saat tombol lari-lari */
+}
+
+.container {
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    z-index: 10;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 30px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(255, 133, 162, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.cat-img {
+    width: 220px;
+    height: auto;
+    margin-bottom: 25px;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    font-weight: 600;
+    color: #666;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    height: 60px; /* fixed height agar layout tidak lompat */
+}
+
+.btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.yes-btn {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 6px 20px rgba(255, 133, 162, 0.4);
+    z-index: 2;
+}
+
+.yes-btn:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 133, 162, 0.5);
+}
+
+.no-btn {
+    background-color: #f0f0f0;
+    color: #888;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.success-msg {
+    color: var(--primary-color);
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Responsif untuk layar HP (Mobile Friendly) */
+@media screen and (max-width: 480px) {
+    .card {
+        padding: 30px 20px;
+    }
+    
+    .cat-img {
+        width: 180px;
+        margin-bottom: 15px;
+    }
+    
+    h1 {
+        font-size: 26px;
+    }
+    
+    p {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+    
+    .buttons {
+        gap: 10px;
+        /* Jika layar sangat kecil, biarkan fleksibel */
+        flex-wrap: wrap; 
+        height: auto;
+        min-height: 60px;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
